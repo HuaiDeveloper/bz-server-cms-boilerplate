@@ -1,0 +1,19 @@
+﻿<MudAppBar Color="Color.Primary" Fixed="true" Dense="true">
+    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+    <MudText Typo="Typo.h5" Class="ml-3">Boobstrap</MudText>
+    <MudSpacer />
+    <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Edge="Edge.End" />
+</MudAppBar>
+<MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always">
+    <NavMenu/>
+</MudDrawer>
+
+
+@code {
+
+    bool _drawerOpen = true;
+    private void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}
