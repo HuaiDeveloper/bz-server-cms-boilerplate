@@ -14,7 +14,7 @@ public static class Startup
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
-                options.Cookie.Name = ".RebelBzApp.Cookies";
+                options.Cookie.Name = ".BzServerCms.Cookies";
                 options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
                 options.Cookie.SameSite = SameSiteMode.Lax;
                 options.Cookie.HttpOnly = true;

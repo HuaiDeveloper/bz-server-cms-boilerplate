@@ -1,0 +1,26 @@
+﻿@page "/auth/sign-in"
+
+<PageTitle>Sign in</PageTitle>
+
+<div class="form-signin w-100 m-auto">
+    <div class="interval-area"></div>
+    <EditForm Model="Request" method="post" OnValidSubmit="async () => await SubmitSignInAsync()" FormName="login">
+        <DataAnnotationsValidator />
+        <h1 class="h3 mb-3 fw-normal">Sign in</h1>
+        <div class="mb-3 row">
+            <InputText @bind-Value="Request.Name" class="form-control"
+                       autocomplete="username" aria-required="true" placeholder="Name" />
+            <ValidationMessage For="() => Request.Name" class="text-danger" />
+        </div>
+        <div class="mb-3 row">
+            <InputText type="password" @bind-Value="Request.Password" class="form-control"
+                       autocomplete="current-password" aria-required="true" placeholder="Password" />
+            <ValidationMessage For="() => Request.Password" class="text-danger" />
+        </div>
+        <br />
+        <MudButton ButtonType="ButtonType.Submit"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   FullWidth="true">Sign in</MudButton>
+    </EditForm>
+</div>

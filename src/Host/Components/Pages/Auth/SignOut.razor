@@ -1,0 +1,22 @@
+﻿@page "/auth/sign-out"
+@using Shared.Exceptions
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using Microsoft.AspNetCore.Authentication
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = null!;
+
+    [Inject]
+    private NavigationManager _navigationManager { get; set; } = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (HttpContext == null)
+            throw new BaseException("HttpContext is null");
+
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+        _navigationManager.NavigateTo("/", forceLoad: true);
+    }
+}
